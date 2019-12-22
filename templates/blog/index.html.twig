@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}{{ controller_name }} {% endblock %}
+
+{% block body %}
+
+<h1>Liste des articles du blog</h1></br>
+
+<div class="card-columns"  display="grid">
+    {% for article in articles %}
+    <div class="card mb-3">
+        <h3 class="card-header">{{ article.title }}</h3>
+        <img  src="{{ article.image }}">
+        <div class="card-body">
+        <a href="{{ path('blog_show', {'id' : article.id }) }}" class="card-link">Read more</a>
+        </div>
+        <div class="card-footer text-muted">
+        {{ article.createdAt | date('d/m/Y') }} à {{ article.createdAt | date('H:i') }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

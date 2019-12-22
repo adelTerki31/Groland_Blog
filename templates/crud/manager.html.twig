@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ controller_name }} {% endblock %}
+
+{% block body %}
+<table class="table table-hover" id="datatable">
+  <thead>
+    <tr>
+      <th scope="col"><a href="{{ path('creation')}}" class="btn btn-primary">Creér un article</a></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for article in articles %}  
+    <tr class="table-light">
+      <th scope="row" width=66% width=66%>{{ article.title }}</th>
+      <td><a href="{{ path('edit', {'id' : article.id }) }}" class="btn btn-primary">Modifier</a></td>
+      <td><a href="{{ path('delete', {'id' : article.id }) }}" class="btn btn-danger" onclick="return confirm('Etes vous sûre de vouloir supprimer cet article ?');">Supprimer</a></td>
+      <td><a href="{{ path('read', {'id' : article.id }) }}" class="btn btn-info">Consulter</a></td>
+    </tr>
+   {% endfor %} 
+     </tbody>
+</table> 
+
+{% endblock %}
