@@ -31,22 +31,6 @@ class ArticleType extends AbstractType
                     'rows'=>'5' 
                 ]  
             ])
-            /*->add('image', FileType::class,[ 
-                    'attr' => [
-                        'class'=>'form-control-file',
-                        'id'=>'image'      
-                    ],  
-                    'constraints' => [
-                    new File([
-                        'maxSize' => '1024k',
-                        'mimeTypes' => [
-                            'application/jpeg',
-                            'application/jpg',
-                            'application/jpg',
-                        ],
-                        'mimeTypesMessage' => 'Please upload a valid jpeg/png document',
-                
-                ])*/
             ->add('image', TextType::class, [
                 'attr' => [
                     'class'=>'form-control', 
